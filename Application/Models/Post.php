@@ -2,7 +2,7 @@
 
 namespace Application\Models;
 
-class Post
+abstract class Post
 {
     protected $id;
     protected $author;

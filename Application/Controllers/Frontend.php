@@ -24,6 +24,11 @@ Class Frontend {
 
 
         //Autre exemple pour passer des données à la View
+        /***********************************************/
+        //À compléter
+        //On doit récupérer les articles depuis la base de données et les initialiser
+        //puis les passer à la view
+        /***********************************************/
         $posts = ['un article', 'un autre article']; //ceci devrait être remplacer par des articles récupérés depuis la base de données
         $this->view->setVar('posts', $posts);
 
