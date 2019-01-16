@@ -23,6 +23,8 @@ class ArticleRepository extends Repository
     }
 
     function all($categories = array()) {
-        
+        $sth = $this->db->prepare('SELECT * FROM posts WHERE post_type="article"');
+        $sth->execute();
+        return $sth->fetchAll();
     }
 }

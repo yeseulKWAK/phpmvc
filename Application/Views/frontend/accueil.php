@@ -20,14 +20,11 @@
     <h3>La liste d'articles devraient apparaitre en dessous sous cette forme : </h3>
 
     <hr>
+    
+    <?php foreach($this->data['articles'] as $article) {
 
-    <?php include 'article-accueil.php'; ?>
+        include 'article-accueil.php'; 
 
-    <?php include 'article-accueil.php'; ?>
-
-    <?php
-    //Pour récupérer les variables passées dans le controleur: 
-    print_r($this->data['posts']);
-    ?>
+    } ?>
 
 </div>
