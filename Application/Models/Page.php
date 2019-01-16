@@ -11,6 +11,5 @@ class Page extends Post
     }
 
     //Getter & Setters différent?
-    //Par exemple, ici on va utiliser le post_name comme nom de fichier
 
 }

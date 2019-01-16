@@ -15,19 +15,22 @@ Class Frontend {
      */
     function index()
     {
-
+        //Exemple de récupération d'une page en base de données
         $page_repository = new \Application\Models\PageRepository(); //on instancie un repository
         $page = new \Application\Models\Page( $page_repository->read('accueil') ); //on instancie un modèle page avec les données récupérées par le repository
 
+        //On passe le modèle à la vue
         $this->view->setVar('page', $page);
 
-        //Exemple pour passer des données à la View
+
+        //Autre exemple pour passer des données à la View
         $posts = ['un article', 'un autre article']; //ceci devrait être remplacer par des articles récupérés depuis la base de données
         $this->view->setVar('posts', $posts);
 
-        //On donne le nom de la view que l'on veut appeler
+        //On donne le nom de la vue que l'on veut appeler
         $this->view->setVar('view', 'frontend/accueil');
 
+        
         //on appelle la template, qui va utiliser la view que l'on a choisie
         //La fonction render utilise template.php par défaut, mais on peut lui spécifier une autre template en paramètre
         echo $this->view->render();
