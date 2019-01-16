@@ -12,7 +12,8 @@
     <div class="top-bar-left">
         <ul class="menu">
         <li class="menu-text"><a href="<?php echo BASE_URL; ?>">Accueil</a></li>
-        <li><a href="<?php echo BASE_URL; ?>?action=articles">Articles</a></li>
+        <li><a href="<?php echo BASE_URL; ?>?action=articles&cateogy=news">News</a></li>
+        <li><a href="<?php echo BASE_URL; ?>?action=articles&cateogy=blog">Blog</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Mentions légales</a></li>
         </ul>
