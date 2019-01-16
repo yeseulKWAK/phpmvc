@@ -48,7 +48,10 @@ Class Frontend {
      */
     function page($name = "accueil")
     {
-        $this->view->setVar('view', 'frontend/accueil'.$name);
+        $page = new \Application\Models\Page([]);
+        $this->view->setVar('page', $page);
+
+        $this->view->setVar('view', 'frontend/'.$name);
 
         //on appelle la template, qui va utiliser la view que l'on a choisie
         echo $this->view->render();
