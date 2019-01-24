@@ -21,10 +21,10 @@
 
     <hr>
     
-    <?php foreach($this->data['articles'] as $article) {
+    <?php foreach($this->data['articles_view'] as $article) {
 
         include 'article-accueil.php'; 
-
+        
     } ?>
 
 </div>

@@ -11,14 +11,18 @@ Class Frontend {
     }
 
     /**
-     * Affiche la page d'accueil
+     * GẼRE L'AFFICHAGE DE INDEX.PHP
      */
     function index()
     {
+        /***********************************************/
         //Exemple de récupération d'une page en base de données
+        /***********************************************/
+
         $page_repository = new \Application\Models\PageRepository(); //on instancie un repository
         $page_db_data = $page_repository->read('accueil');
-        // print_r( $page_db_data);die;
+
+        //print_r($page_db_data);die;
         $page = new \Application\Models\Page( $page_db_data ); //on instancie un modèle page avec les données récupérées par le repository
 
         //On passe le modèle à la vue
@@ -34,13 +38,13 @@ Class Frontend {
 
         $articles_repository = new \Application\Models\ArticleRepository(); //on instancie un repository
         $articles_array = $articles_repository->all();
-
         $articles = [];
         foreach($articles_array as $article_db_values) {
             $articles[] = new \Application\Models\Article( $article_db_values ); 
         }
 
-        $this->view->setVar('articles', $articles);
+        // $articles = [];
+        $this->view->setVar('articles_view', $articles);
 
         //On donne le nom de la vue que l'on veut appeler
         $this->view->setVar('view', 'frontend/accueil');
@@ -52,6 +56,7 @@ Class Frontend {
     }
 
     /**
+     * GẼRE L'AFFICHAGE DES PAGES
      * Affiche une page
      * @param String $name: l'url de la page (colonne)
      */
@@ -67,7 +72,7 @@ Class Frontend {
     }
 
     /**
-     * Affiche la page des articles
+     * GẼRE L'AFFICHAGE DES PAGES CATÉGORIES
      * @param String $category : Permet de trier les articles par catégorie
      */
     function articles($category = null) {
@@ -84,7 +89,7 @@ Class Frontend {
     }
 
     /**
-     * Affiche la page d'un article
+     * GẼRE L'AFFICHAGE D'UN ARTICLE
      * @param String $name : Le nom de l'article à afficher
      */
     function article($name = null) {
@@ -120,8 +125,20 @@ Class Frontend {
      */
     function newsletter() {
 
-        /***********************************************/
-        /***********************************************/
+        $result = false;
+        if(isset($_POST['email']))
+        {
+            //create repository object
+            $newsletter = new \Application\Models\NewsletterRepository(); 
+            //save data
+            $result = $newsletter->create($_POST['email']);
+
+            //pass message to view in case of success
+        }
+
+        $this->view->setVar('result', $result);
+
+        $this->view->setVar('view', 'frontend/newsletter');
 
         //on appelle la template, qui va utiliser la view que l'on a choisie
         echo $this->view->render();

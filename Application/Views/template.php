@@ -43,7 +43,15 @@ else include 'frontend/not-found.php';
 
 <div class="callout primary">
     <div class="row column text-center">
-    <h2 class="subheader">Ici un formulaire pour s'enregistrer à la newsletter ce serait sympa</h2>
+    
+    
+        <form action="<?= BASE_URL; ?>index.php?action=newsletter" method="post">
+        <label for="Email">Email</label>
+            <input type="email" name="email">
+            <input type="submit">
+
+        </form>
+
     </div>
 </div>
 
